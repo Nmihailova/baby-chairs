@@ -1,0 +1,145 @@
+.order {
+  position: relative;
+  margin: 0 auto;
+  width: 75%;
+  border: none;
+
+  &__color-btn {
+    display: inline-block;
+    padding: 15px;
+    margin: 0 2px;
+    border: 1px solid lightgrey;
+    border-radius: 16px;
+    font-size: 0px;
+    line-height: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__header {
+    border: none;
+  }
+
+  &__footer {
+    border: none;
+
+    &_text {
+      text-align: right;
+      padding: 0 20px;
+    }
+
+    &_cost {
+      text-align: center;
+    }
+  }
+
+  &__block {
+    width: 25%;
+    border: none;
+    background-color: rgb(241, 228, 250);
+    text-align: center;
+    padding: 10px;
+
+    &__colors {
+      position: relative;
+      
+      &__show-colors {
+        width: 35px;
+        height: 35px;
+        font-size: 0;
+        outline: none;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      &__color {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 112px;
+        z-index: 100;
+        border: 1px solid white;
+        border-radius: 11px;
+        background-color: white;
+      }
+    }
+
+    &__select {
+      margin: 10px;
+      border-radius: 10px;
+      font-size: 14px;
+      padding: 5px;
+      outline: none;
+      border: lightblue;
+      cursor: pointer;
+    }
+
+    &__count {
+      width: 30%;
+      padding: 7px;
+      border-radius: 18px;
+      border: 1px solid lightblue;
+      outline: none;
+      font-size: 16px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    width: 69%;
+    position: relative;
+    top: 30px;
+    margin: auto;
+
+    &__input {
+      margin: 5px 0;
+      padding: 9px;
+      border-radius: 10px;
+      border: 1px solid lightblue;
+      outline: none;
+      font-size: 16px;
+    }
+  }
+
+  &__delivery {
+    position: relative;
+    width: 69%;
+    top: 30px;
+    margin: 0 auto;
+  }
+
+  &__comments {
+    position: relative;
+    width: 69%;
+    top: 30px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__order-btn {
+    position: relative;
+    display: block;
+    top: 25px;
+    width: 200px;
+    height: 50px;
+    margin: 30px auto;
+    background-color: #3fb1ceb2;
+    font-weight: bold;
+    font-size: 1rem;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #3291a8b2;
+    }
+  }
+}
