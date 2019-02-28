@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: auto;
+  padding: 20px 0;
+  border-bottom: 20px solid lightblue;
+
+
+  &__logo {
+    width: 15%;
+
+    &__img {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    color: #c18be0;
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  &__info {
+    text-align: right;
+  }
+}
