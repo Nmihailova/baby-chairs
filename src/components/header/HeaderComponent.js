@@ -1,15 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './header.scss';
 
 const HeaderComponent = () => {
   return (
     <div className="header">
-      <div className="header__logo">
-        <img className="header__logo__img" src={require("../../img/logo.jpg")} />
-      </div>
-
-      <h1 className="header__title">Растущий стул <br />"Винни"</h1>
+      <Link className="header__logo" to="/">
+          <img className="header__logo__img" src={require("../../img/logo.jpg")} />
+          <h1 className="header__logo__title">Растущий стул <br />"Винни"</h1>
+      </Link>
+      
       <div className="header__info">
         <p>
           Адрес:

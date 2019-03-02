@@ -1,0 +1,35 @@
+.menu {
+    position: relative;
+    text-align: center;
+    margin: 20px;
+
+    &__list {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+
+        &__item {
+            display: inline-block;
+            text-decoration: none;
+            border-right: 1px solid lightblue;
+            padding: 10px 30px;
+            cursor: pointer;
+            transition: 0.1s linear;
+            color: #c18be0;
+            font-weight: bold;
+
+            &:last-child {
+                border: none;
+            }
+
+            &:hover {
+                background-color: #f1e4fa;
+            }
+        }
+
+    }
+}
+
+.active {
+    background-color: #f1e4fa;
+}

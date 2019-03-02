@@ -9,18 +9,26 @@
 
 
   &__logo {
-    width: 15%;
+    width: 40%;
+    cursor: pointer;
 
     &__img {
-      width: 100%;
+      width: 30%;
+    }
+
+    &__title {
+      display: inline-block;
+      width: 60%;
+      margin: 15px;
+      color: #c18be0;
+      font-weight: bold;
+      font-size: 2em;
+      line-height: 1.3em;
+      vertical-align: top;
     }
   }
 
-  &__title {
-    color: #c18be0;
-    font-weight: bold;
-    font-size: 30px;
-  }
+
 
   &__info {
     text-align: right;
