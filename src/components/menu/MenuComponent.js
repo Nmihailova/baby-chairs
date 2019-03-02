@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './menu.scss';
 
-export default class MenuComponent extends Component {
-
-    render() {
-        const { location } = this.props;
+const MenuComponent = ({ location }) => {
         return (
             <nav className="menu">
                 <ul className="menu__list">
@@ -31,5 +28,6 @@ export default class MenuComponent extends Component {
                 </ul>
             </nav>
         )
-    }
 };
+
+export default MenuComponent;

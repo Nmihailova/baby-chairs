@@ -7,23 +7,24 @@
         list-style: none;
         display: flex;
         justify-content: space-around;
+        padding: 0;
+        
 
         &__item {
             display: inline-block;
             text-decoration: none;
-            border-right: 1px solid lightblue;
             padding: 10px 30px;
             cursor: pointer;
-            transition: 0.1s linear;
+            transition: 0.2s linear;
             color: #c18be0;
+            border: 2px solid #f1e4fa;
+            background-color: #f1e4fa;
+            border-radius: 10px;
             font-weight: bold;
-
-            &:last-child {
-                border: none;
-            }
+            margin: 5px;
 
             &:hover {
-                background-color: #f1e4fa;
+                box-shadow: 0 0 10px rgba(0,0,0,0.5);
             }
         }
 
@@ -31,5 +32,5 @@
 }
 
 .active {
-    background-color: #f1e4fa;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
