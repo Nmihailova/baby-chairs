@@ -23,8 +23,6 @@ mongoose.connect("mongodb://localhost:27017/babychairsdb", {useNewUrlParser: tru
 function(err) {
     if(err) return console.log("my error: " + err);
 
-
-
     app.listen(3001, function() {
         console.log("Сервер ожидает подключения...");
     });
@@ -127,13 +125,28 @@ app.post('/leave-feedback', jsonParser, function (req, res) {
     residenceCity: req.body.residenceCity,
     feedbackText: req.body.feedbackText
   }).then(feedback => {
-    res.json(feedback);
+      let email = {
+      from: 'stul-winnie@yandex.ru',
+      to: 'winnie-stul@mail.ru',
+      subject: 'Новый отзыв на сайте',
+      text: `На Вашем сайте появился новый отзыв от ${feedback.authorName} из ${feedback.residenceCity}:
+      "${feedback.feedbackText}"`
+      // html: `<p>На Вашем сайте появился новый отзыв от ${req.body.authorName} из ${req.body.residenceCity}:</p>
+      // <p>"${req.body.feedbackText}"</p>`
+    };
+    client.sendMail(email, function (err, info) {
+      if (err) {
+        console.log(err);
+        res.send(err);
+      }
+      else {
+        res.send(info);
+        console.log('Message sent: ' + info);
+      }
+    });
   }).catch(err => console.log(err, 'feedback not created'));
 
-  Feedback.find({}, (err, data) => {
-    if(err) return console.log(err);
-    console.log(data);
-  });
+
 });
 
 app.get('/get-feedbacks', (req, res) => {
