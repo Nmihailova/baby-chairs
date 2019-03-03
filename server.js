@@ -4,8 +4,31 @@ const nodemailer = require('nodemailer');
 const sgTransport = require('nodemailer-sendgrid-transport');
 const jsonParser = express.json();
 const cors = require('cors');
+const mongoose = require('mongoose');
+
+const Schema = mongoose.Schema;
+
+const feedBackScheme = new Schema({
+  authorName: String, 
+  residenceCity: String,
+  feedbackText: String
+},
+{versionKey: false}
+);
+const Feedback = mongoose.model("Feedback", feedBackScheme);
 
 app.use(express.static(__dirname + "/src"));
+
+mongoose.connect("mongodb://localhost:27017/babychairsdb", {useNewUrlParser: true}, 
+function(err) {
+    if(err) return console.log("my error: " + err);
+
+
+
+    app.listen(3001, function() {
+        console.log("Сервер ожидает подключения...");
+    });
+});
 
 app.use(cors());
 app.options('*', cors());
@@ -94,9 +117,38 @@ app.post('/send', jsonParser, function (req, res) {
       console.log('Message sent: ' + info);
     }
   });
-})
-
-app.listen(3001, function () {
-  console.log("Сервер ожидает подключения...");
 });
+
+app.post('/leave-feedback', jsonParser, function (req, res) {
+  if (!req.body) return res.sendStatus(400);
+
+  Feedback.create({
+    authorName: req.body.authorName,
+    residenceCity: req.body.residenceCity,
+    feedbackText: req.body.feedbackText
+  }).then(feedback => {
+    res.json(feedback);
+  }).catch(err => console.log(err, 'feedback not created'));
+
+  Feedback.find({}, (err, data) => {
+    if(err) return console.log(err);
+    console.log(data);
+  });
+});
+
+app.get('/get-feedbacks', (req, res) => {
+  Feedback.find({}, (err, feedbacks) => {
+    if(err) return console.log(err);
+    res.send(feedbacks);
+  });
+});
+
+app.delete("/api/delete/feedbacks", function(req, res) {
+  Feedback.deleteMany({authorName: { $exists: true }}, function(err, data){
+      if(err) return console.log(err);
+      res.send(data);
+  });
+});
+
+
 

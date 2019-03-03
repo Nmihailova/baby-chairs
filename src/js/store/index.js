@@ -27,6 +27,10 @@ const initialState = {
   },
   makeOrderReducer: {
     orderStatus: false
+  },
+  feedbacksReducer: {
+    isFeedbackLeft: false,
+    feedbacksList: []
   }
 };
 

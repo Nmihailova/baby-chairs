@@ -124,14 +124,14 @@
 
   &__order-btn {
     position: relative;
-    display: block;
     top: 25px;
-    width: 200px;
+    display: block;
+    width: 20%;
     height: 50px;
-    margin: 30px auto;
-    background-color: #3fb1ceb2;
+    margin: 20px auto;
+    background-color: #c18be0;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.8em;
     color: white;
     outline: none;
     border: none;
@@ -139,7 +139,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: #3291a8b2;
+      background-color:  #956aad;
     }
   }
 }

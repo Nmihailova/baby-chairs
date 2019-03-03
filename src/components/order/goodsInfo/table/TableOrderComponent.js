@@ -4,8 +4,6 @@ import Chair from '../chair/ChairComponent';
 import FirstPillow from '../firstPillow/FirstPillowComponent';
 import SecondPillow from '../secondPillow/SecondPillowComponent';
 
-import './order.scss';
-
 export default class TableOrderComponent extends Component {
   state = {
     chairPrice: 6000,

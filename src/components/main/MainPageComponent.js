@@ -6,6 +6,7 @@ import { withRouter } from "react-router-dom";
 import HeaderComponent from '../header/HeaderComponent';
 import Menu from '../menu/MenuComponent';
 import Order from '../order/OrderComponent';
+import Feedbacks from '../feedbacks/FeedbacksComponent';
 
 class MainPageComponent extends Component {
   render () {
@@ -16,9 +17,9 @@ class MainPageComponent extends Component {
         <MenuComponent />
         <Switch>
           <Route path="/order" component={Order} />
+          <Route path="/feedbacks" component={Feedbacks} />
         </Switch>
       </div>
-
     )
   }
 };

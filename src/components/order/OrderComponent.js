@@ -11,8 +11,11 @@ import {
   chooseCountChairColors
 } from '../../js/actions';
 
+import './order.scss';
+
 import TableOrder from './goodsInfo/table/TableOrderComponent';
 import Note from './note/NoteComponent';
+
 
 const mapStateToProps = state => {
   return {

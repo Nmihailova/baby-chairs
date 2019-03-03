@@ -107,6 +107,51 @@ export const requestMakeOrderApi = data => {
         })
       })
   }
-}
+};
+
+export const requestLeaveFeedbackApi = data => {
+  return dispatch => {
+    dispatch({
+      type: 'LEAVE_FEEDBACK_REQUEST',
+      payload: data
+    })
+
+    axios.post(`${HOST}/leave-feedback`, data)
+      .then(res => {
+        dispatch({
+          type: 'LEAVE_FEEDBACK_SUCCESS',
+          payload: res.data
+        })
+      })
+      .catch(err => {
+        dispatch({
+          type: 'LEAVE_FEEDBACK_FAIL',
+          payload: err
+        })
+      })
+  }
+};
+
+export const requestGetFeedbacksApi = () => {
+  return dispatch => {
+    dispatch({
+      type: 'GET_FEEDBACK_LIST_REQUEST'
+    })
+
+    axios.get(`${HOST}/get-feedbacks`)
+      .then(res => {
+        dispatch({
+          type: 'GET_FEEDBACK_LIST_SUCCESS',
+          payload: res.data
+        })
+      })
+      .catch(err => {
+        dispatch({
+          type: 'GET_FEEDBACK_LIST_FAIL',
+          payload: err
+        })
+      })
+  }
+};
 
 

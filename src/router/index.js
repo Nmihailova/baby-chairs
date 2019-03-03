@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Order from '../components/order/OrderComponent';
+import Feedbacks from '../feedbacks/FeedbacksComponent';
 
 const RouterPaths = () => (
     <BrowserRouter>
@@ -9,7 +10,7 @@ const RouterPaths = () => (
         {/* <Route exact path="/" component={WelcomeComponent} />
         <Route path="/game" component={GameComponent} /> */}
         <Route path="/order" component={Order} />
-        {/* <Route path="/end" component={EndComponent} /> */}
+        <Route path="/feedbacks" component={Feedbacks} />
       </Switch>
     </BrowserRouter>
   );
