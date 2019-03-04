@@ -1,5 +1,3 @@
-import sendEmailApiKey from './apiKey';
-
 const express = require('express');
 const app = express();
 const nodemailer = require('nodemailer');
@@ -36,7 +34,7 @@ app.options('*', cors());
 let options = {
   service: 'SendGrid',
   auth: {
-    api_key: sendEmailApiKey
+    api_key: process.env.API_KEY
   }
 };
 let client = nodemailer.createTransport(sgTransport(options));
