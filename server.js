@@ -1,3 +1,5 @@
+import sendEmailApiKey from './apiKey';
+
 const express = require('express');
 const app = express();
 const nodemailer = require('nodemailer');
@@ -9,24 +11,24 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const feedBackScheme = new Schema({
-  authorName: String, 
+  authorName: String,
   residenceCity: String,
   feedbackText: String
 },
-{versionKey: false}
+  { versionKey: false }
 );
 const Feedback = mongoose.model("Feedback", feedBackScheme);
 
 app.use(express.static(__dirname + "/src"));
 
-mongoose.connect("mongodb://localhost:27017/babychairsdb", {useNewUrlParser: true}, 
-function(err) {
-    if(err) return console.log("my error: " + err);
+mongoose.connect("mongodb://localhost:27017/babychairsdb", { useNewUrlParser: true },
+  function (err) {
+    if (err) return console.log("my error: " + err);
 
-    app.listen(3001, function() {
-        console.log("Сервер ожидает подключения...");
+    app.listen(3001, function () {
+      console.log("Сервер ожидает подключения...");
     });
-});
+  });
 
 app.use(cors());
 app.options('*', cors());
@@ -34,7 +36,7 @@ app.options('*', cors());
 let options = {
   service: 'SendGrid',
   auth: {
-    api_key: "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"
+    api_key: sendEmailApiKey
   }
 };
 let client = nodemailer.createTransport(sgTransport(options));
@@ -125,7 +127,7 @@ app.post('/leave-feedback', jsonParser, function (req, res) {
     residenceCity: req.body.residenceCity,
     feedbackText: req.body.feedbackText
   }).then(feedback => {
-      let email = {
+    let email = {
       from: 'stul-winnie@yandex.ru',
       to: 'winnie-stul@mail.ru',
       subject: 'Новый отзыв на сайте',
@@ -151,15 +153,15 @@ app.post('/leave-feedback', jsonParser, function (req, res) {
 
 app.get('/get-feedbacks', (req, res) => {
   Feedback.find({}, (err, feedbacks) => {
-    if(err) return console.log(err);
+    if (err) return console.log(err);
     res.send(feedbacks);
   });
 });
 
-app.delete("/api/delete/feedbacks", function(req, res) {
-  Feedback.deleteMany({authorName: { $exists: true }}, function(err, data){
-      if(err) return console.log(err);
-      res.send(data);
+app.delete("/api/delete/feedbacks", function (req, res) {
+  Feedback.deleteMany({ authorName: { $exists: true } }, function (err, data) {
+    if (err) return console.log(err);
+    res.send(data);
   });
 });
 
