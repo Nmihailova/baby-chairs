@@ -1,0 +1,46 @@
+.about {
+    position: relative;
+    margin: 0 auto;
+    width: 75%;
+    padding: 0 0 30px;
+
+    &__text {
+        line-height: 1.4em;
+    }
+
+    &__first-img {
+        width: 50%;
+        float: left;
+        margin: 0 30px 30px 0;
+    }
+
+    &__second-img {
+        width: 50%;
+        float: right;
+        margin: 0 0 30px 30px;
+    }
+
+    &__order {
+        position: relative;
+        top: 25px;
+        display: block;
+        width: 20%;
+        height: 50px;
+        margin: 20px auto;
+        background-color: #c18be0;
+        font-weight: bold;
+        font-size: 0.8em;
+        color: white;
+        outline: none;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    
+        &:hover {
+          background-color:  #956aad;
+        }
+    }
+    &__link {
+        text-decoration: none;
+    }
+}
