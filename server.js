@@ -5,6 +5,7 @@ const sgTransport = require('nodemailer-sendgrid-transport');
 const jsonParser = express.json();
 const cors = require('cors');
 const mongoose = require('mongoose');
+const apiKey = require('./config');
 
 const Schema = mongoose.Schema;
 
@@ -34,9 +35,12 @@ app.options('*', cors());
 let options = {
   service: 'SendGrid',
   auth: {
-    api_key: process.env.API_KEY
+    api_key: apiKey.apiKey
   }
 };
+
+console.log(apiKey.apiKey);
+
 let client = nodemailer.createTransport(sgTransport(options));
 
 app.post('/send', jsonParser, function (req, res) {

@@ -1,0 +1,42 @@
+.gallery {
+    position: relative;
+    margin: 0 auto;
+    width: 75%;
+
+    &__block {
+        position: relative;
+        text-align: center;
+
+        &__title {
+            color: #62a1ff;
+        }
+
+        &__carousel {
+            width: 80%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+
+            &__btn-prev,
+            &__btn-next {
+                width: 5%;
+                height: 100%;
+                cursor: pointer;
+            }
+
+            &__photo {
+                width: 70%;
+                height: 100%;
+                border: 1px solid #c18be0;
+                margin: 20px;
+                padding: 40px;
+
+                &__img {
+                    width: 100%;
+                } 
+            }
+        }
+    }
+}

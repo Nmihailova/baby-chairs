@@ -7,6 +7,7 @@ import HeaderComponent from '../header/HeaderComponent';
 import Menu from '../menu/MenuComponent';
 import Order from '../order/OrderComponent';
 import Feedbacks from '../feedbacks/FeedbacksComponent';
+import { PhotoGallery } from '../photogallery/PhotoGalleryComponent';
 
 class MainPageComponent extends Component {
   render () {
@@ -18,6 +19,7 @@ class MainPageComponent extends Component {
         <Switch>
           <Route path="/order" component={Order} />
           <Route path="/feedbacks" component={Feedbacks} />
+          <Route path="/photogallery" component={PhotoGallery} />
         </Switch>
       </div>
     )
