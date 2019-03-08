@@ -11,6 +11,7 @@ import { PhotoGallery } from '../photogallery/PhotoGalleryComponent';
 import AboutCompany from '../about/AboutCompanyComponent';
 import { Delivery } from '../delivery/DeliveryComponent';
 import { Contacts } from '../contacts/ContactsComponent';
+import { FooterComponent } from '../footer/FooterComponent';
 
 class MainPageComponent extends Component {
   render () {
@@ -27,6 +28,7 @@ class MainPageComponent extends Component {
           <Route path="/delivery" component={Delivery} />
           <Route path="/contacts" component={Contacts} />
         </Switch>
+        <FooterComponent />
       </div>
     )
   }
