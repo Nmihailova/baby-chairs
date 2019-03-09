@@ -6,11 +6,11 @@ export const Contacts = () => {
     return (
         <div className="contacts">
             <p className="contacts__text">
-                Адрес: г.Чебоксары, пр.И.Яковлева, д.1, кв.1
-
-                <br/>Телефон: 8(968)-641-00-88
-
-                <br/>E-mail: winnie-stul@mail.ru
+                <b>Адрес:</b> Чувашская Республика г.Чебоксары
+                <br/>
+                <br/><b>Тел.:</b> 8-987-674-97-83, 8-987-662-82-56
+                <br/>
+                <br/><b>E-mail:</b> winnie-stul@mail.ru
             </p>
         </div>
     )
