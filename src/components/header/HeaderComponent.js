@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 import './header.scss';
 
-const HeaderComponent = () => {
+const Header = () => {
   return (
-    <div className="header">
+    <header className="header">
       <Link className="header__logo" to="/">
         <img className="header__logo__img" src={require("../../img/logo.jpg")} />
         <h1 className="header__logo__title">Растущий стул <br />"ВИННИ"</h1>
@@ -26,8 +26,8 @@ const HeaderComponent = () => {
           winnie-stul@mail.ru
         </p>
       </div>
-    </div>
+    </header>
   )
 };
 
-export default HeaderComponent;
+export default Header;

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
 
-import HeaderComponent from '../header/HeaderComponent';
+import Header from '../header/HeaderComponent';
 import Menu from '../menu/MenuComponent';
 import Order from '../order/OrderComponent';
 import Feedbacks from '../feedbacks/FeedbacksComponent';
@@ -18,7 +18,7 @@ class MainPageComponent extends Component {
     const MenuComponent = withRouter(props => <Menu {...props} />);
     return (
       <div>
-        <HeaderComponent />
+        <Header />
         <MenuComponent />
         <Switch>
           <Route exact path="/" component={AboutCompany} />
