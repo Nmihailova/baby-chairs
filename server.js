@@ -41,10 +41,21 @@ let options = {
 
 let client = nodemailer.createTransport(sgTransport(options));
 
+const cutPotentialDangerousChars = (data) => {
+  let potentialDangerousChars = /[<>{}\[\]]/gi;
+  for (let key in data) {
+    let newStr = data[key].toString().replace(potentialDangerousChars, " ");
+    data[key] = newStr;
+  }
+};
+
 app.post('/send', jsonParser, function (req, res) {
   if (!req.body) return res.sendStatus(400);
 
-  let itemsInfo = req.body.items.map(goods => {
+  let dataObj = req.body.items;
+  cutPotentialDangerousChars(dataObj);
+
+  let itemsInfo = dataObj.map(goods => {
     if (goods.item == "Стул") {
       if (goods.colorLegChair) {
         let resString = `
@@ -122,10 +133,13 @@ app.post('/send', jsonParser, function (req, res) {
 app.post('/leave-feedback', jsonParser, function (req, res) {
   if (!req.body) return res.sendStatus(400);
 
+  let dataObj = req.body;
+  cutPotentialDangerousChars(dataObj);
+
   Feedback.create({
-    authorName: req.body.authorName,
-    residenceCity: req.body.residenceCity,
-    feedbackText: req.body.feedbackText
+    authorName: dataObj.authorName,
+    residenceCity: dataObj.residenceCity,
+    feedbackText: dataObj.feedbackText
   }).then(feedback => {
     let email = {
       from: 'stul-winnie@yandex.ru',
@@ -133,8 +147,6 @@ app.post('/leave-feedback', jsonParser, function (req, res) {
       subject: 'Новый отзыв на сайте',
       text: `На Вашем сайте появился новый отзыв от ${feedback.authorName} из ${feedback.residenceCity}:
       "${feedback.feedbackText}"`
-      // html: `<p>На Вашем сайте появился новый отзыв от ${req.body.authorName} из ${req.body.residenceCity}:</p>
-      // <p>"${req.body.feedbackText}"</p>`
     };
     client.sendMail(email, function (err, info) {
       if (err) {
