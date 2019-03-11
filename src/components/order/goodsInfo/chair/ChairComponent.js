@@ -51,8 +51,19 @@ class ChairComponent extends Component {
     }))
   };
   toChangeCountOfChairs = event => {
-    let count = event.target.value;
-    this.props.changeCountOfChairs(count);
+    let count;
+    let inputedCount = event.target.value;
+    let reg = new RegExp(/^\d+$|^$/);
+    let result = reg.test(inputedCount);
+    if (result) {
+      if (Number(event.target.value) < 10000) {
+        count = event.target.value;
+      } else {
+        count = 10000;
+      }
+      this.props.changeCountOfChairs(count);
+    }
+
   };
   toCountCostOfChair = () => {
     if (this.props.isChairChecked) {
@@ -131,7 +142,7 @@ class ChairComponent extends Component {
 
         </td>
         <td className="order__block">
-          <input className="order__block__count" value={countOfChairs} onChange={this.toChangeCountOfChairs} />
+          <input className="order__block__count" value={countOfChairs} type="number" min="0" max="10000" onChange={this.toChangeCountOfChairs} />
         </td>
         <td className="order__block">{`${chairPrice} руб.`}</td>
         <td className="order__block">

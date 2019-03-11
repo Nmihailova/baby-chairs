@@ -42,8 +42,20 @@ class FirstPillowComponent extends Component {
     }))
   };
   toChangeCountOfFirstPillow = (e) => {
-    let count = e.target.value;
-    this.props.changeCountOfFirstPillow(count);
+    let count;
+    let inputedCount = e.target.value;
+    let reg = new RegExp(/^\d+$|^$/);
+    let result = reg.test(inputedCount);
+
+    if (result) {
+      if (Number(e.target.value) < 10000) {
+        count = e.target.value;
+      } else {
+        count = 10000;
+      }
+      this.props.changeCountOfFirstPillow(count);
+    }
+
   };
   toCheckFirstPillow = () => {
     this.props.checkFirstPillow();
@@ -79,7 +91,7 @@ class FirstPillowComponent extends Component {
 
         </td>
         <td className="order__block">
-          <input className="order__block__count" value={countOfFirstPillow} onChange={this.toChangeCountOfFirstPillow}></input>
+          <input className="order__block__count" value={countOfFirstPillow} type="number" min="0" max="10000" onChange={this.toChangeCountOfFirstPillow}></input>
         </td>
         <td className="order__block">{`${firstPillowPrice} руб.`}</td>
         <td className="order__block">

@@ -187,8 +187,6 @@ class OrderComponent extends Component {
     };
     this.cutPotentialDangerousChars(dataObj);
 
-    console.log(dataObj);
-
     if (this.props.isChairChecked) {
       let chairItem = {
         item: "Стул",

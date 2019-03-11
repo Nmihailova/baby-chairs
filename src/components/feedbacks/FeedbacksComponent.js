@@ -29,13 +29,6 @@ class FeedbacksComponent extends Component {
   componentDidMount () {
     this.props.requestGetFeedbacksApi();
 
-    console.log(this.props.feedbacksList);
-    if (this.props.feedbacksList == "Не удалось загрузить отзывы.") {
-      console.log('1')
-      this.setState(() => ({
-        errorInRequest: true
-      }))
-    }
   };
 
   showFeedBackForm = () => {
