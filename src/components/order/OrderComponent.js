@@ -84,7 +84,15 @@ class OrderComponent extends Component {
       deliveryMethod: "Курьер",
       comments: ''
     }));
-  }
+  };
+
+  cutPotentialDangerousChars = (data) => {
+    let potentialDangerousChars = /[<>{}\[\]]/gi;
+    for (let key in data) {
+      let newStr = data[key].toString().replace(potentialDangerousChars, " ");
+      data[key] = newStr;
+    }
+  };
   getTotalAmount = () => {
     let totalAmount = this.props.costOfChair + this.props.costOfFirstPillow + this.props.costOfSecondPillow;
     return totalAmount;
@@ -177,6 +185,9 @@ class OrderComponent extends Component {
       deliveryMethod: this.state.deliveryMethod,
       comments: this.state.comments
     };
+    this.cutPotentialDangerousChars(dataObj);
+
+    console.log(dataObj);
 
     if (this.props.isChairChecked) {
       let chairItem = {

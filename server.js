@@ -39,8 +39,6 @@ let options = {
   }
 };
 
-console.log(apiKey.apiKey);
-
 let client = nodemailer.createTransport(sgTransport(options));
 
 app.post('/send', jsonParser, function (req, res) {
