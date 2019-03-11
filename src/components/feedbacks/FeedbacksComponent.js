@@ -79,7 +79,7 @@ class FeedbacksComponent extends Component {
 
   render () {
     let feedbacks;
-    if (this.props.feedbacksList == "Не удалось загрузить отзывы.") {
+    if (this.props.feedbacksList == "Не удалось загрузить отзывы") {
       feedbacks = this.props.feedbacksList;
     } else {
       feedbacks = this.props.feedbacksList.map((item, index) => {
