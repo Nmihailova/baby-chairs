@@ -6,6 +6,7 @@ const jsonParser = express.json();
 const cors = require('cors');
 const mongoose = require('mongoose');
 const apiKey = require('./config');
+var port = process.env.PORT || 80;
 
 const Schema = mongoose.Schema;
 
@@ -24,7 +25,8 @@ mongoose.connect("mongodb+srv://nmixailowa:qw123456@cluster0-yulmw.mongodb.net/t
   function (err) {
     if (err) return console.log("my error: " + err);
 
-    app.listen(3001, function () {
+    app.listen(port, function () {
+      console.log(process.env.PORT);
       console.log("Сервер ожидает подключения...");
     });
   });
