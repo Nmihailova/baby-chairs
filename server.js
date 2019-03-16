@@ -20,7 +20,7 @@ const Feedback = mongoose.model("Feedback", feedBackScheme);
 
 app.use(express.static(__dirname + "/src"));
 
-mongoose.connect("mongodb://nmixailowa:qw123456@cluster0-yulmw.mongodb.net/test?retryWrites=true", { useNewUrlParser: true },
+mongoose.connect("mongodb+srv://nmixailowa:qw123456@cluster0-yulmw.mongodb.net/test?retryWrites=true", { useNewUrlParser: true },
   function (err) {
     if (err) return console.log("my error: " + err);
 
