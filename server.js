@@ -6,7 +6,7 @@ const jsonParser = express.json();
 const cors = require('cors');
 const mongoose = require('mongoose');
 const apiKey = require('./config');
-var port = process.env.PORT || 80;
+var port = process.env.PORT || 3001;
 
 const Schema = mongoose.Schema;
 
