@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const HOST = "http://localhost:3001";
+const HOST = "https://winnie-chair.herokuapp.com";
 
 export const changeCountOfChairs = (count) => {
   return {
