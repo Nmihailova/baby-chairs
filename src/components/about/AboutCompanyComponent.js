@@ -9,7 +9,7 @@ export const AboutCompany = () => {
     };
         return (
             <main className="about">
-                <img className="about__first-img" src={require('../../img/about1.png')} />
+                <img className="about__first-img" src={require('../../img/about1.png')} alt="" />
                 <p className="about__text">
                     Растущий стул «ВИННИ» — идеальное решение для заботливых и любящих родителей. 
                     Растущий стул «ВИННИ» очень практичен — его можно использовать для малышей от 6-х месяцев 
@@ -28,7 +28,7 @@ export const AboutCompany = () => {
                     аксессуар — столик для кормления. Столик с легкостью монтируется и демонтируется без применения 
                     специального инструмента. После кормления малыша столик можно снять одним движение руки. 
                 </p>
-                <img className="about__second-img" src={require('../../img/about2.png')} />
+                <img className="about__second-img" src={require('../../img/about2.png')} alt="" />
                 <p className="about__text">
                     Для школьников растущий стул «ВИННИ» является незаменимым другом и помощником. 
                     Любой школьник, начиная от младших классов и до окончания школы, удобно расположится на стуле. 

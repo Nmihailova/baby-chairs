@@ -1,5 +1,3 @@
-import React from 'react';
-
 const initialState = {
   chairColor: '#007fb6',
   chairLegColor: '#007fb6',

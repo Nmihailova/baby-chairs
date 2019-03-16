@@ -6,8 +6,7 @@ import { pillowColors } from '../../../../data/colors';
 const mapStateToProps = state => {
   return {
     countOfFirstPillow: state.countOfGoodsReducer.countOfFirstPillow,
-    isFirstPillowChecked: state.checkGoodsReducer.isFirstPillowChecked,
-    countOfFirstPillow: state.countOfGoodsReducer.countOfFirstPillow
+    isFirstPillowChecked: state.checkGoodsReducer.isFirstPillowChecked
   }
 };
 

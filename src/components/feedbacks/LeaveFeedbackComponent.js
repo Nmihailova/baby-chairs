@@ -45,7 +45,7 @@ class LeaveFeedbackComponent extends Component {
         }))
       };
       cutPotentialDangerousChars = (data) => {
-        let potentialDangerousChars = /[<>{}\[\]]/gi;
+        let potentialDangerousChars = /[<>{}[\]]/gi;
         for (let key in data) {
           let newStr = data[key].toString().replace(potentialDangerousChars, " ");
           data[key] = newStr;

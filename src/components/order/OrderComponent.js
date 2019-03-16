@@ -193,7 +193,7 @@ class OrderComponent extends Component {
         count: this.props.countOfChairs
       };
 
-      if (this.props.countColorsOfChair == "bicolor") {
+      if (this.props.countColorsOfChair === "bicolor") {
         chairItem.colorLegChair = this.props.chairLegColor;
         dataObj.items.push(chairItem);
       } else {

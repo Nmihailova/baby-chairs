@@ -6,8 +6,7 @@ import { pillowColors } from '../../../../data/colors';
 const mapStateToProps = state => {
   return {
     countOfSecondPillow: state.countOfGoodsReducer.countOfSecondPillow,
-    isSecondPillowChecked: state.checkGoodsReducer.isSecondPillowChecked,
-    countOfSecondPillow: state.countOfGoodsReducer.countOfSecondPillow
+    isSecondPillowChecked: state.checkGoodsReducer.isSecondPillowChecked
   }
 };
 
@@ -76,7 +75,7 @@ class SecondPillowComponent extends Component {
       return <div key={index} className="order__color-btn" style={{ backgroundColor: item.color }} onClick={() => this.chooseColorForSecondPillow(item.color, item.name)}></div>
     });
 
-    const { countOfSecondPillow, secondPillowPrice, isSecondPillowChecked, secondPillowColor } = this.props;
+    const { countOfSecondPillow, secondPillowPrice, isSecondPillowChecked } = this.props;
 
     return (
       <tr>

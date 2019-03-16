@@ -1,5 +1,3 @@
-import React from 'react';
-
 const initialState = {
   countOfChairs: 1,
   countOfFirstPillow: 1,

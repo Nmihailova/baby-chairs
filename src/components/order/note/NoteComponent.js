@@ -15,7 +15,7 @@ const NoteComponent = ({ showNote, orderStatus }) => {
   return (
     <div>
       <div className="background" onClick={showNote}></div>
-      {orderStatus == "success" &&
+      {orderStatus === "success" &&
         <div className="note">
           <button className="note__close-btn" onClick={showNote}>X</button>
 

@@ -9,7 +9,6 @@ const mapStateToProps = state => {
     isChairChecked: state.checkGoodsReducer.isChairChecked,
     chairColor: state.colorReducer.chairColor,
     chairLegColor: state.colorReducer.chairLegColor,
-    countOfChairs: state.countOfGoodsReducer.countOfChairs,
     countColorsOfChair: state.colorReducer.countColorsOfChair
   }
 };
@@ -112,7 +111,7 @@ class ChairComponent extends Component {
             <option value="bicolor">Двухцветный</option>
           </select>
 
-          {this.props.countColorsOfChair == "monochrome" ?
+          {this.props.countColorsOfChair === "monochrome" ?
             <div className="order__block__colors">
               <button className="order__block__colors__show-colors" onClick={this.showChairColors} style={{ backgroundColor: this.state.chairColor }}></button>
               {this.state.isChairColorsShown &&

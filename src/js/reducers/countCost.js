@@ -1,5 +1,3 @@
-import React from 'react';
-
 const initialState = {
   costOfChair: 0,
   costOfFirstPillow: 0,
