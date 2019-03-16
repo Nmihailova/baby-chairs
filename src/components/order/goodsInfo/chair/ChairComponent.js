@@ -101,7 +101,7 @@ class ChairComponent extends Component {
       return <div key={index} className="order__color-btn" style={{ backgroundColor: item.color }} onClick={() => this.chooseColorForChairLeg(item.color, item.name)}></div>
     });
 
-    let { countOfChairs, chairPrice, isChairChecked, chairLegColor, chairColor } = this.props;
+    let { countOfChairs, chairPrice, isChairChecked } = this.props;
     return (
       <tr>
         <td className="order__block">Стул</td>

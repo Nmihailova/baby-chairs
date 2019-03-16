@@ -18,4 +18,4 @@ export const FooterComponent = () => {
             </div>
         </div>
     )
-}
+};

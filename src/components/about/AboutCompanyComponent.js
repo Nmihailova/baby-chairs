@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './about.scss';
 
-export default class AboutCompany extends Component {
-    scrollToTop = () => {
+export const AboutCompany = () => {
+    const scrollToTop = () => {
         window.scrollTo(0, 100);
-    }
-    render() {
+    };
         return (
-            <div className="about">
+            <main className="about">
                 <img className="about__first-img" src={require('../../img/about1.png')} />
                 <p className="about__text">
                     Растущий стул «ВИННИ» — идеальное решение для заботливых и любящих родителей. 
@@ -56,9 +55,8 @@ export default class AboutCompany extends Component {
                 </ul>
 
                 <Link className="about__link" to="/order">
-                    <button onClick={this.scrollToTop} className="about__order">Сделать заказ</button>
+                    <button onClick={scrollToTop} className="about__order">Сделать заказ</button>
                 </Link>
-            </div>
+            </main>
         ) 
-    }
 };

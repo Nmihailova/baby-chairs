@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
 
-import Header from '../header/HeaderComponent';
-import Menu from '../menu/MenuComponent';
+import { Header } from '../header/HeaderComponent';
+import { Menu } from '../menu/MenuComponent';
 import Order from '../order/OrderComponent';
 import Feedbacks from '../feedbacks/FeedbacksComponent';
 import { PhotoGallery } from '../photogallery/PhotoGalleryComponent';
-import AboutCompany from '../about/AboutCompanyComponent';
+import { AboutCompany } from '../about/AboutCompanyComponent';
 import { Delivery } from '../delivery/DeliveryComponent';
 import { Contacts } from '../contacts/ContactsComponent';
 import { FooterComponent } from '../footer/FooterComponent';

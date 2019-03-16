@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import './menu.scss';
 
-const Menu = ({ location }) => {
+export const Menu = ({ location }) => {
   return (
     <nav className="menu">
       <ul className="menu__list">
@@ -29,5 +29,3 @@ const Menu = ({ location }) => {
     </nav>
   )
 };
-
-export default Menu;
