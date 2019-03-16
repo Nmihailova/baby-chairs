@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className="header">
       <Link className="header__logo" to="/">
-        <img className="header__logo__img" src={require("../../img/logo.jpg")} />
+        <img className="header__logo__img" src={require("../../img/logo.png")} />
         <h1 className="header__logo__title">Растущий стул <br />"ВИННИ"</h1>
       </Link>
 

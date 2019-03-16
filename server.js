@@ -42,7 +42,7 @@ let options = {
 let client = nodemailer.createTransport(sgTransport(options));
 
 const cutPotentialDangerousChars = (data) => {
-  let potentialDangerousChars = /[<>{}\[\]]/gi;
+  let potentialDangerousChars = /[<>{}]/gi;
   for (let key in data) {
     let newStr = data[key].toString().replace(potentialDangerousChars, " ");
     data[key] = newStr;
@@ -53,7 +53,6 @@ app.post('/send', jsonParser, function (req, res) {
   if (!req.body) return res.sendStatus(400);
 
   let dataObj = req.body.items;
-  cutPotentialDangerousChars(dataObj);
 
   let itemsInfo = dataObj.map(goods => {
     if (goods.item == "Стул") {

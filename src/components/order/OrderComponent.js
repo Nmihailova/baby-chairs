@@ -67,9 +67,16 @@ class OrderComponent extends Component {
     this.props.changeCountOfChairs(1);
     this.props.changeCountOfFirstPillow(1);
     this.props.changeCountOfSecondPillow(1);
-    this.props.checkChair();
-    this.props.checkFirstPillow();
-    this.props.checkSecondPillow();
+
+    if(this.props.isChairChecked) {
+      this.props.checkChair();
+    }
+    if(this.props.isFirstPillowChecked) {
+      this.props.checkFirstPillow();
+    }
+    if(this.props.isSecondPillowChecked) {
+      this.props.checkSecondPillow();
+    }
 
     this.setState(() => ({
       firstName: '',
@@ -86,13 +93,6 @@ class OrderComponent extends Component {
     }));
   };
 
-  cutPotentialDangerousChars = (data) => {
-    let potentialDangerousChars = /[<>{}\[\]]/gi;
-    for (let key in data) {
-      let newStr = data[key].toString().replace(potentialDangerousChars, " ");
-      data[key] = newStr;
-    }
-  };
   getTotalAmount = () => {
     let totalAmount = this.props.costOfChair + this.props.costOfFirstPillow + this.props.costOfSecondPillow;
     return totalAmount;
@@ -185,7 +185,6 @@ class OrderComponent extends Component {
       deliveryMethod: this.state.deliveryMethod,
       comments: this.state.comments
     };
-    this.cutPotentialDangerousChars(dataObj);
 
     if (this.props.isChairChecked) {
       let chairItem = {
@@ -208,6 +207,7 @@ class OrderComponent extends Component {
         color: this.props.firstPillowColor,
         count: this.props.countOfFirstPillow
       };
+
       dataObj.items.push(firstPillowItem);
     }
     if (this.props.isSecondPillowChecked) {
@@ -216,6 +216,7 @@ class OrderComponent extends Component {
         color: this.props.secondPillowColor,
         count: this.props.countOfSecondPillow
       };
+
       dataObj.items.push(secondPillowItem);
     }
 

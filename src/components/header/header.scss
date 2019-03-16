@@ -9,7 +9,10 @@
 
 
   &__logo {
+    display: flex;
+    align-items: center;
     width: 40%;
+    text-decoration: none;
     cursor: pointer;
 
     &__img {

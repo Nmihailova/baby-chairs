@@ -13,6 +13,9 @@ function feedbacksReducer (state = initialState, action) {
     case 'LEAVE_FEEDBACK_FAIL':
       return { ...state, isFeedbackLeft: action.payload.message };
 
+    case 'GET_FEEDBACK_LIST_REQUEST':
+      return { ...state, feedbacksList: "Загрузка отзывов..." };
+
     case 'GET_FEEDBACK_LIST_SUCCESS':
       return { ...state, feedbacksList: action.payload };
 
