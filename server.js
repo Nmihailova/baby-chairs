@@ -5,7 +5,6 @@ const sgTransport = require('nodemailer-sendgrid-transport');
 const jsonParser = express.json();
 const cors = require('cors');
 const mongoose = require('mongoose');
-// const apiKey = require('./config');
 const path = require('path');
 var port = process.env.PORT || 3001;
 

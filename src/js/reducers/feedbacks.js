@@ -15,7 +15,6 @@ function feedbacksReducer (state = initialState, action) {
       return { ...state, feedbacksList: "Загрузка отзывов..." };
 
     case 'GET_FEEDBACK_LIST_SUCCESS':
-      console.log(action.payload);
       return { ...state, feedbacksList: action.payload };
 
     case 'GET_FEEDBACK_LIST_FAIL':
