@@ -173,10 +173,8 @@ app.get('/get-feedbacks', (req, res) => {
   Feedback.find({}, (err, feedbacks) => {
     if (err) return console.log(err);
 
-    if(feedbacks) {
-      console.log(feedbacks);
-      res.send(feedbacks);
-    } 
+    console.log("отзывы" + feedbacks);
+    res.send(feedbacks); 
   });
 });
 
