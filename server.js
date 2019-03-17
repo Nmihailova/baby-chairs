@@ -176,7 +176,7 @@ app.get('/get-feedbacks', (req, res) => {
 
     if(feedbacks) {
       res.header("Cache-Control", "no-cache, no-store, must-revalidate");
-      res.header("Pragma", "no-cache");
+      res.header("cache", "no-cache");
       res.header("Expires", 0);
       res.send(feedbacks);
     } 
