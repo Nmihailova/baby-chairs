@@ -22,9 +22,9 @@ const Feedback = mongoose.model("Feedback", feedBackScheme);
 
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, 'build')));
-// app.get('/*', function (req, res) {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
+app.get(/.*(?!get-)*$/, function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 mongoose.connect(process.env.MLAB_URI, { useNewUrlParser: true },
   function (err) {
