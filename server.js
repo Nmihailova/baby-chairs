@@ -45,7 +45,7 @@ app.options('*', cors());
 let options = {
   service: 'SendGrid',
   auth: {
-    api_key: apiKey.apiKey
+    api_key: API_KEY
   }
 };
 
