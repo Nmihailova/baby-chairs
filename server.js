@@ -173,7 +173,13 @@ app.post('/leave-feedback', jsonParser, function (req, res) {
 app.get('/get-feedbacks', (req, res) => {
   Feedback.find({}, (err, feedbacks) => {
     if (err) return console.log(err);
-    res.send(feedbacks);
+
+    if(feedbacks) {
+      res.header("Cache-Control", "no-cache, no-store, must-revalidate");
+      res.header("Pragma", "no-cache");
+      res.header("Expires", 0);
+      res.send(feedbacks);
+    } 
   });
 });
 
