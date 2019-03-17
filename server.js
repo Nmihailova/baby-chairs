@@ -4,7 +4,6 @@ const nodemailer = require('nodemailer');
 const sgTransport = require('nodemailer-sendgrid-transport');
 const jsonParser = express.json();
 const cors = require('cors');
-const path = require('path');
 const mongoose = require('mongoose');
 const apiKey = require('./config');
 var port = process.env.PORT || 3001;
@@ -51,13 +50,6 @@ const cutPotentialDangerousChars = (data) => {
     data[key] = newStr;
   }
 };
-
-if(process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'build')));
-  app.get('/', (req, res) => {
-    res.sendfile(path.join(__dirname = 'build/index.html'));
-  })
-}
 
 app.post('/send', jsonParser, function (req, res) {
   if (!req.body) return res.sendStatus(400);
