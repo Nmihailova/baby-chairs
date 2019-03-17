@@ -6,6 +6,7 @@ const jsonParser = express.json();
 const cors = require('cors');
 const mongoose = require('mongoose');
 const apiKey = require('./config');
+const path = require('path');
 var port = process.env.PORT || 3001;
 
 const Schema = mongoose.Schema;
@@ -19,7 +20,14 @@ const feedBackScheme = new Schema({
 );
 const Feedback = mongoose.model("Feedback", feedBackScheme);
 
-app.use(express.static(__dirname + "/src"));
+app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/ping', function (req, res) {
+ return res.send('pong');
+});
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 mongoose.connect("mongodb+srv://nmixailowa:qw123456@cluster0-yulmw.mongodb.net/test?retryWrites=true", { useNewUrlParser: true },
   function (err) {
