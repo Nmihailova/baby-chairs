@@ -22,14 +22,11 @@ const Feedback = mongoose.model("Feedback", feedBackScheme);
 
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, 'build')));
-app.get('/ping', function (req, res) {
- return res.send('pong');
-});
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-mongoose.connect("mongodb+srv://nmixailowa:qw123456@cluster0-yulmw.mongodb.net/test?retryWrites=true", { useNewUrlParser: true },
+mongoose.connect(process.env.MLAB_URI, { useNewUrlParser: true },
   function (err) {
     if (err) return console.log("my error: " + err);
 
@@ -41,6 +38,7 @@ mongoose.connect("mongodb+srv://nmixailowa:qw123456@cluster0-yulmw.mongodb.net/t
 
 app.use(cors());
 app.options('*', cors());
+app.disable('etag');
 
 let options = {
   service: 'SendGrid',
