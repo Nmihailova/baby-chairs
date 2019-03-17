@@ -21,12 +21,12 @@
   },
 
   "scripts": {
-    "client-install": "npm install --prefix client",
+    "client-install": "npm install --prefix baby-chairs",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "npm start --prefix client",
+    "client": "npm start --prefix baby-chairs",
     "dev": "concurrently \"node server.js\" \"react-scripts start\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix baby-chairs && npm run build --prefix baby-chairs"
   },
   "eslintConfig": {
     "extends": "react-app"
