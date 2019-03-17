@@ -5,7 +5,7 @@ const sgTransport = require('nodemailer-sendgrid-transport');
 const jsonParser = express.json();
 const cors = require('cors');
 const mongoose = require('mongoose');
-const apiKey = require('./config');
+// const apiKey = require('./config');
 const path = require('path');
 var port = process.env.PORT || 3001;
 
@@ -38,7 +38,6 @@ mongoose.connect(process.env.MLAB_URI, { useNewUrlParser: true },
 
 app.use(cors());
 app.options('*', cors());
-app.disable('etag');
 
 let options = {
   service: 'SendGrid',
@@ -175,9 +174,7 @@ app.get('/get-feedbacks', (req, res) => {
     if (err) return console.log(err);
 
     if(feedbacks) {
-      res.header("Cache-Control", "no-cache, no-store, must-revalidate");
-      res.header("cache", "no-cache");
-      res.header("Expires", 0);
+      console.log(feedbacks);
       res.send(feedbacks);
     } 
   });
