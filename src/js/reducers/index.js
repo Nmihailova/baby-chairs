@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 import checkGoodsReducer from './checkGoods';
 import countOfGoodsReducer from './countOfGoods';
 import colorReducer from './colorOfGoods';
@@ -7,10 +7,10 @@ import makeOrderReducer from './order';
 import feedbacksReducer from './feedbacks';
 
 export default combineReducers({
-  checkGoodsReducer,
-  countOfGoodsReducer,
-  colorReducer,
-  countCostReducer,
-  makeOrderReducer,
-  feedbacksReducer
+    checkGoodsReducer,
+    countOfGoodsReducer,
+    colorReducer,
+    countCostReducer,
+    makeOrderReducer,
+    feedbacksReducer,
 });

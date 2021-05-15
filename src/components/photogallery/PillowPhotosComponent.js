@@ -1,7 +1,7 @@
 import React from 'react';
 import CarouselLogic from './CarouselLogicComponent';
 
-import { pillowPaths } from '../../data/imgPaths';
+import {pillowPaths} from '../../data/imgPaths';
 
 export const PillowPhotos = () => {
     return (
@@ -9,5 +9,5 @@ export const PillowPhotos = () => {
             <h2 className="gallery__block__title">Фотографии подушек</h2>
             <CarouselLogic imgPaths={pillowPaths} />
         </div>
-    )
+    );
 };

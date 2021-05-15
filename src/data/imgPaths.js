@@ -3,7 +3,7 @@ export const chairPaths = [
     'img/chairs/chair-two.jpg',
     'img/chairs/chair-three.jpg',
     'img/chairs/chair-four.jpg',
-    'img/chairs/chair-five.jpg'
+    'img/chairs/chair-five.jpg',
 ];
 
 export const pillowPaths = [

@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 export default class CarouselLogic extends Component {
     state = {
         currentPhotoPath: this.props.imgPaths[0],
-        currentIndex: 0
+        currentIndex: 0,
     };
 
     prevPhoto = () => {
@@ -11,13 +11,13 @@ export default class CarouselLogic extends Component {
             let newCurrIndex = this.props.imgPaths.length - 1;
             this.setState(() => ({
                 currentIndex: newCurrIndex,
-                currentPhotoPath: this.props.imgPaths[newCurrIndex]
+                currentPhotoPath: this.props.imgPaths[newCurrIndex],
             }));
         } else {
             let newCurrIndex = this.state.currentIndex - 1;
             this.setState(() => ({
                 currentIndex: newCurrIndex,
-                currentPhotoPath: this.props.imgPaths[newCurrIndex]
+                currentPhotoPath: this.props.imgPaths[newCurrIndex],
             }));
         }
     };
@@ -27,13 +27,13 @@ export default class CarouselLogic extends Component {
             let newCurrIndex = 0;
             this.setState(() => ({
                 currentIndex: newCurrIndex,
-                currentPhotoPath: this.props.imgPaths[newCurrIndex]
+                currentPhotoPath: this.props.imgPaths[newCurrIndex],
             }));
         } else {
             let newCurrIndex = this.state.currentIndex + 1;
             this.setState(() => ({
                 currentIndex: newCurrIndex,
-                currentPhotoPath: this.props.imgPaths[newCurrIndex]
+                currentPhotoPath: this.props.imgPaths[newCurrIndex],
             }));
         }
     };
@@ -41,12 +41,22 @@ export default class CarouselLogic extends Component {
         let path = this.state.currentPhotoPath;
         return (
             <div className="gallery__block__carousel">
-                <img className="gallery__block__carousel__btn-prev" onClick={this.prevPhoto} src={require('../../img/left.png')} alt=""/>
+                <img
+                    className="gallery__block__carousel__btn-prev"
+                    onClick={this.prevPhoto}
+                    src={require('../../img/left.png')}
+                    alt=""
+                />
                 <div className="gallery__block__carousel__photo">
-                    <img className="gallery__block__carousel__photo__img" src={require(`../../${path}`)} alt=""/>
+                    <img className="gallery__block__carousel__photo__img" src={require(`../../${path}`)} alt="" />
                 </div>
-                <img className="gallery__block__carousel__btn-next" onClick={this.nextPhoto} src={require('../../img/right.png')} alt=""/>
+                <img
+                    className="gallery__block__carousel__btn-next"
+                    onClick={this.nextPhoto}
+                    src={require('../../img/right.png')}
+                    alt=""
+                />
             </div>
-        )
+        );
     }
 }

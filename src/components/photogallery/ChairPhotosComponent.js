@@ -1,7 +1,7 @@
 import React from 'react';
 import CarouselLogic from './CarouselLogicComponent';
 
-import { chairPaths } from '../../data/imgPaths';
+import {chairPaths} from '../../data/imgPaths';
 
 export const ChairPhotos = () => {
     return (
@@ -9,5 +9,5 @@ export const ChairPhotos = () => {
             <h2 className="gallery__block__title">Фотографии стульев</h2>
             <CarouselLogic imgPaths={chairPaths} />
         </div>
-    )
+    );
 };
